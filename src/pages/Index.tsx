@@ -2,9 +2,9 @@
 import React from 'react';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
+import Feed from '@/components/Feed';
 import RightPanel from '@/components/RightPanel';
 import MobileNav from '@/components/MobileNav';
-import Dashboard from '@/pages/Dashboard';
 
 const Index = () => {
   return (
@@ -13,7 +13,7 @@ const Index = () => {
       <div className="flex-1 flex flex-col min-h-screen max-h-screen overflow-hidden">
         <Header />
         <main className="flex-1 overflow-y-auto pb-16 md:pb-0">
-          <Dashboard />
+          <Feed />
         </main>
       </div>
       <RightPanel />
