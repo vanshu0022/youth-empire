@@ -1,33 +1,38 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Briefcase, Calendar, FileText, Heart, MessageSquare, Menu, School, Search, Award, Podcast, X } from 'lucide-react';
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
     <>
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-2 z-10 md:hidden">
         <Link to="/" className="flex flex-col items-center p-2">
-          <FileText size={20} className="text-student-purple" />
+          <FileText size={20} className={isActive('/') ? "text-student-purple" : ""} />
           <span className="text-xs mt-1">Dashboard</span>
         </Link>
         <Link to="/projects" className="flex flex-col items-center p-2">
-          <Briefcase size={20} />
+          <Briefcase size={20} className={isActive('/projects') ? "text-student-purple" : ""} />
           <span className="text-xs mt-1">Projects</span>
         </Link>
         <button onClick={toggleMenu} className="flex flex-col items-center p-2">
           <Menu size={20} />
           <span className="text-xs mt-1">Menu</span>
         </button>
-        <Link to="/messages" className="flex flex-col items-center p-2">
-          <MessageSquare size={20} />
-          <span className="text-xs mt-1">Messages</span>
+        <Link to="/learning" className="flex flex-col items-center p-2">
+          <School size={20} className={isActive('/learning') ? "text-student-purple" : ""} />
+          <span className="text-xs mt-1">Learning</span>
         </Link>
         <Link to="/profile" className="flex flex-col items-center p-2">
           <div className="w-6 h-6 rounded-full bg-student-purple/20 flex items-center justify-center">
