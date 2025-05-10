@@ -94,9 +94,9 @@ const MentorshipTypes = [
 const Mentorship = () => {
   const [selectedMentor, setSelectedMentor] = useState(null);
   const [filters, setFilters] = useState({
-    country: "",
-    university: "",
-    expertise: ""
+    country: "all",
+    university: "all",
+    expertise: "all"
   });
   const [aiMessage, setAiMessage] = useState("");
   const [chatMessages, setChatMessages] = useState([
@@ -130,9 +130,9 @@ const Mentorship = () => {
   // Apply filters to mentors list
   const filteredMentors = mentors.filter(mentor => {
     return (
-      (filters.country === "" || mentor.country === filters.country) &&
-      (filters.university === "" || mentor.university === filters.university) &&
-      (filters.expertise === "" || mentor.expertise.includes(filters.expertise))
+      (filters.country === "all" || mentor.country === filters.country) &&
+      (filters.university === "all" || mentor.university === filters.university) &&
+      (filters.expertise === "all" || mentor.expertise.includes(filters.expertise))
     );
   });
 
@@ -165,7 +165,7 @@ const Mentorship = () => {
                         <SelectValue placeholder="Filter by Country" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All Countries</SelectItem>
+                        <SelectItem value="all">All Countries</SelectItem>
                         <SelectItem value="USA">USA</SelectItem>
                         <SelectItem value="UK">UK</SelectItem>
                         <SelectItem value="India">India</SelectItem>
@@ -177,7 +177,7 @@ const Mentorship = () => {
                         <SelectValue placeholder="Filter by University/Company" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All Institutions</SelectItem>
+                        <SelectItem value="all">All Institutions</SelectItem>
                         <SelectItem value="Stanford University">Stanford University</SelectItem>
                         <SelectItem value="Harvard Business School">Harvard Business School</SelectItem>
                         <SelectItem value="Delhi University">Delhi University</SelectItem>
@@ -190,7 +190,7 @@ const Mentorship = () => {
                         <SelectValue placeholder="Filter by Expertise" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="">All Expertise Areas</SelectItem>
+                        <SelectItem value="all">All Expertise Areas</SelectItem>
                         <SelectItem value="AI/ML">AI/ML</SelectItem>
                         <SelectItem value="Entrepreneurship">Entrepreneurship</SelectItem>
                         <SelectItem value="Career Planning">Career Planning</SelectItem>
@@ -369,3 +369,4 @@ const Mentorship = () => {
 };
 
 export default Mentorship;
+
