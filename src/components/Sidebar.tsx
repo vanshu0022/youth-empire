@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Briefcase, Calendar, FileText, Heart, MessageSquare, School, Search, Award, Podcast } from 'lucide-react';
+import { Briefcase, Calendar, FileText, Heart, MessageSquare, School, Search, Award, Podcast, Trophy } from 'lucide-react';
 
 const Sidebar = () => {
   const location = useLocation();
@@ -33,6 +33,10 @@ const Sidebar = () => {
         <Link to="/mentorship" className={isActive('/mentorship')}>
           <Award size={20} />
           <span>Mentorship</span>
+        </Link>
+        <Link to="/highlights" className={isActive('/highlights')}>
+          <Trophy size={20} />
+          <span>Highlights</span>
         </Link>
         
         <h3 className="text-xs uppercase text-gray-500 font-semibold px-2 mt-6 mb-1">Connect</h3>

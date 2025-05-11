@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Briefcase, Calendar, FileText, Heart, MessageSquare, Menu, School, Search, Award, Podcast, X } from 'lucide-react';
+import { Briefcase, Calendar, FileText, Heart, MessageSquare, Menu, School, Search, Award, Podcast, Trophy, X } from 'lucide-react';
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,6 +68,10 @@ const MobileNav = () => {
               <Link to="/mentorship" className="flex flex-col items-center p-4 bg-gray-50 rounded-lg" onClick={toggleMenu}>
                 <Award size={24} className="mb-2 text-student-purple" />
                 <span className="text-sm text-center">Mentorship</span>
+              </Link>
+              <Link to="/highlights" className="flex flex-col items-center p-4 bg-gray-50 rounded-lg" onClick={toggleMenu}>
+                <Trophy size={24} className="mb-2 text-student-purple" />
+                <span className="text-sm text-center">Highlights</span>
               </Link>
               <Link to="/messages" className="flex flex-col items-center p-4 bg-gray-50 rounded-lg" onClick={toggleMenu}>
                 <MessageSquare size={24} className="mb-2 text-student-purple" />
