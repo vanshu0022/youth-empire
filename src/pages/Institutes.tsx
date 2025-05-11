@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Filter, Star, MapPin } from 'lucide-react';
@@ -66,7 +65,7 @@ const Institutes = () => {
       <Sidebar />
       
       <div className="flex-1 flex flex-col">
-        <Header title="Institute Database" />
+        <Header />
         
         <div className="p-6 flex-1">
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">

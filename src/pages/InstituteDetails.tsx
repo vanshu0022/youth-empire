@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Phone, Mail, Globe, MapPin, Star, Info, BarChart, Users } from 'lucide-react';
@@ -45,7 +44,7 @@ const InstituteDetails = () => {
       <div className="flex min-h-screen bg-gray-50">
         <Sidebar />
         <div className="flex-1 flex flex-col">
-          <Header title="Institute Not Found" />
+          <Header />
           <div className="p-6 flex-1 flex items-center justify-center">
             <div className="text-center">
               <h2 className="text-2xl font-bold mb-4">Institute Not Found</h2>
@@ -66,7 +65,7 @@ const InstituteDetails = () => {
       <Sidebar />
       
       <div className="flex-1 flex flex-col">
-        <Header title={institute.name} />
+        <Header />
         
         <div className="p-6 flex-1">
           <div className="mb-6 flex flex-col md:flex-row items-start justify-between gap-4">
