@@ -13,6 +13,8 @@ import Learning from "./pages/Learning";
 import Highlights from "./pages/Highlights";
 import FundingRequest from "./pages/FundingRequest";
 import QuizProgram from "./pages/QuizProgram";
+import Institutes from "./pages/Institutes";
+import InstituteDetails from "./pages/InstituteDetails";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/highlights" element={<Highlights />} />
           <Route path="/funding-request" element={<FundingRequest />} />
           <Route path="/quiz-program" element={<QuizProgram />} />
+          <Route path="/institutes" element={<Institutes />} />
+          <Route path="/institutes/:id" element={<InstituteDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
