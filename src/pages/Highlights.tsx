@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Avatar } from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, Star, Trophy } from 'lucide-react';
@@ -18,6 +18,7 @@ const Highlights = () => {
       student: {
         name: "Emma Wilson",
         avatar: "EW",
+        photo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
         university: "MIT"
       },
       description: "Developed an algorithm that reduced delivery time by 23% while optimizing resource allocation.",
@@ -32,6 +33,7 @@ const Highlights = () => {
       student: {
         name: "Michael Chen",
         avatar: "MC",
+        photo: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=600&q=80",
         university: "Stanford"
       },
       description: "Created a real-time monitoring system that helped reduce manufacturing carbon emissions by 17%.",
@@ -46,6 +48,7 @@ const Highlights = () => {
       student: {
         name: "Sarah Patel",
         avatar: "SP",
+        photo: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80",
         university: "Harvard"
       },
       description: "Built a diagnostic tool that improved early detection rates of three types of cancer by 31%.",
@@ -63,6 +66,7 @@ const Highlights = () => {
       student: {
         name: "James Rodriguez",
         avatar: "JR",
+        photo: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=600&q=80",
         university: "CalTech"
       },
       description: "A breakthrough audio platform that creates immersive 3D soundscapes for VR environments, winning the International Design Excellence Award.",
@@ -78,6 +82,7 @@ const Highlights = () => {
       student: {
         name: "Aisha Kwame",
         avatar: "AK",
+        photo: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=600&q=80",
         university: "Oxford"
       },
       description: "Developed a cost-effective biodegradable packaging material from agricultural waste that decomposes in just 30 days.",
@@ -93,6 +98,7 @@ const Highlights = () => {
       student: {
         name: "David Kim",
         avatar: "DK",
+        photo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
         university: "UCLA"
       },
       description: "Created a solar-powered water purification device that can produce 5 gallons of clean water per day for disaster relief situations.",
@@ -153,9 +159,12 @@ const Highlights = () => {
                 </CardContent>
                 <CardFooter className="border-t pt-4">
                   <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-student-purple/20 flex items-center justify-center">
-                      <span className="text-student-purple text-xs font-medium">{problem.student.avatar}</span>
-                    </div>
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={problem.student.photo} alt={problem.student.name} />
+                      <AvatarFallback className="bg-student-purple/20">
+                        <span className="text-student-purple text-xs font-medium">{problem.student.avatar}</span>
+                      </AvatarFallback>
+                    </Avatar>
                     <div className="ml-2">
                       <p className="text-sm font-medium">{problem.student.name}</p>
                       <p className="text-xs text-gray-500">{problem.student.university}</p>
@@ -193,9 +202,12 @@ const Highlights = () => {
                 </CardContent>
                 <CardFooter className="border-t pt-4">
                   <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-student-coral/20 flex items-center justify-center">
-                      <span className="text-student-coral text-xs font-medium">{project.student.avatar}</span>
-                    </div>
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={project.student.photo} alt={project.student.name} />
+                      <AvatarFallback className="bg-student-coral/20">
+                        <span className="text-student-coral text-xs font-medium">{project.student.avatar}</span>
+                      </AvatarFallback>
+                    </Avatar>
                     <div className="ml-2">
                       <p className="text-sm font-medium">{project.student.name}</p>
                       <p className="text-xs text-gray-500">{project.student.university}</p>
