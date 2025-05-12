@@ -135,20 +135,31 @@ const Highlights = () => {
         </TabsList>
 
         <TabsContent value="solved-problems" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {solvedProblems.map((problem) => (
               <Card key={problem.id} className="overflow-hidden hover:shadow-md transition-shadow">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle>{problem.title}</CardTitle>
-                      <CardDescription className="mt-1">Problem by {problem.company}</CardDescription>
-                    </div>
-                    <Badge variant="outline" className="bg-student-purple/10 text-student-purple border-student-purple/20">
-                      <Star size={12} className="mr-1" /> Solved
-                    </Badge>
+                <div className="relative">
+                  <div className="h-48 bg-gray-50 flex items-center justify-center overflow-hidden">
+                    <Avatar className="h-32 w-32">
+                      <AvatarImage src={problem.student.photo} alt={problem.student.name} />
+                      <AvatarFallback className="bg-student-purple/20 text-2xl">
+                        {problem.student.avatar}
+                      </AvatarFallback>
+                    </Avatar>
                   </div>
+                  <Badge 
+                    variant="outline" 
+                    className="absolute top-3 right-3 bg-student-purple/10 text-student-purple border-student-purple/20"
+                  >
+                    <Star size={12} className="mr-1" /> Solved
+                  </Badge>
+                </div>
+                
+                <CardHeader className="pb-2">
+                  <CardTitle>{problem.title}</CardTitle>
+                  <CardDescription className="mt-1">Problem by {problem.company}</CardDescription>
                 </CardHeader>
+                
                 <CardContent>
                   <p className="text-sm text-gray-600 mb-4">{problem.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -157,15 +168,10 @@ const Highlights = () => {
                     ))}
                   </div>
                 </CardContent>
+                
                 <CardFooter className="border-t pt-4">
                   <div className="flex items-center">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage src={problem.student.photo} alt={problem.student.name} />
-                      <AvatarFallback className="bg-student-purple/20">
-                        <span className="text-student-purple text-xs font-medium">{problem.student.avatar}</span>
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="ml-2">
+                    <div className="ml-0">
                       <p className="text-sm font-medium">{problem.student.name}</p>
                       <p className="text-xs text-gray-500">{problem.student.university}</p>
                     </div>
@@ -178,20 +184,30 @@ const Highlights = () => {
         </TabsContent>
 
         <TabsContent value="wall-of-fame" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {creativeProjects.map((project) => (
               <Card key={project.id} className="overflow-hidden hover:shadow-md transition-shadow">
-                <div className="h-48 overflow-hidden">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                </div>
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <CardTitle>{project.title}</CardTitle>
+                <div className="relative">
+                  <div className="h-48 overflow-hidden">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   </div>
+                  <div className="absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                    <Avatar className="h-24 w-24 border-2 border-white mx-auto">
+                      <AvatarImage src={project.student.photo} alt={project.student.name} />
+                      <AvatarFallback className="bg-student-coral/20 text-xl">
+                        {project.student.avatar}
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+                </div>
+                
+                <CardHeader className="pb-2">
+                  <CardTitle>{project.title}</CardTitle>
                   <Badge className="bg-student-coral text-white border-student-coral/20 mt-1 inline-flex">
                     <Award size={12} className="mr-1" /> {project.achievement}
                   </Badge>
                 </CardHeader>
+                
                 <CardContent>
                   <p className="text-sm text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -200,15 +216,10 @@ const Highlights = () => {
                     ))}
                   </div>
                 </CardContent>
+                
                 <CardFooter className="border-t pt-4">
                   <div className="flex items-center">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage src={project.student.photo} alt={project.student.name} />
-                      <AvatarFallback className="bg-student-coral/20">
-                        <span className="text-student-coral text-xs font-medium">{project.student.avatar}</span>
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="ml-2">
+                    <div className="ml-0">
                       <p className="text-sm font-medium">{project.student.name}</p>
                       <p className="text-xs text-gray-500">{project.student.university}</p>
                     </div>
