@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { 
   Briefcase, Calendar, FileText, Heart, MessageSquare, School, 
   Search, Award, Podcast, Trophy, DollarSign, BookOpen, 
-  Map, Building 
+  Map, Building, Zap
 } from 'lucide-react';
 
 const Sidebar = () => {
@@ -53,6 +53,10 @@ const Sidebar = () => {
         <Link to="/institutes" className={isActive('/institutes')}>
           <Building size={20} />
           <span>Institutes</span>
+        </Link>
+        <Link to="/life-lab" className={isActive('/life-lab')}>
+          <Zap size={20} />
+          <span>Life Lab</span>
         </Link>
         
         <h3 className="text-xs uppercase text-gray-500 font-semibold px-2 mt-6 mb-1">Connect</h3>

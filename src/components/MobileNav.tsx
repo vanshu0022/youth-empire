@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Briefcase, Calendar, FileText, Heart, MessageSquare, Menu, School, 
-  Search, Award, Podcast, Trophy, X, DollarSign, BookOpen, Building 
+  Search, Award, Podcast, Trophy, X, DollarSign, BookOpen, Building, Zap
 } from 'lucide-react';
 
 const MobileNav = () => {
@@ -107,6 +106,10 @@ const MobileNav = () => {
               <Link to="/opportunities" className="flex flex-col items-center p-4 bg-gray-50 rounded-lg" onClick={toggleMenu}>
                 <Heart size={24} className="mb-2 text-student-purple" />
                 <span className="text-sm text-center">Opportunities</span>
+              </Link>
+              <Link to="/life-lab" className="flex flex-col items-center p-4 bg-gray-50 rounded-lg" onClick={toggleMenu}>
+                <Zap size={24} className="mb-2 text-student-purple" />
+                <span className="text-sm text-center">Life Lab</span>
               </Link>
             </div>
             
