@@ -53,7 +53,7 @@ export const podcasts: Podcast[] = [
     category: 'Student Stars',
     duration: '24:30',
     image: 'https://images.unsplash.com/photo-1498936178812-4b2e558d2937',
-    description: 'Sarah shares the story behind her research breakthrough in renewable energy and how it's making an impact.',
+    description: 'Sarah shares the story behind her research breakthrough in renewable energy and how it is making an impact.',
   },
   {
     id: 6,
