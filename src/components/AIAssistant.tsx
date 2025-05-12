@@ -9,7 +9,7 @@ const AIAssistant = () => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: 'Hi there! I'm your Life Lab AI assistant. I'm here to guide you through practical skill challenges. What would you like to work on today?'
+      content: "Hi there! I'm your Life Lab AI assistant. I'm here to guide you through practical skill challenges. What would you like to work on today?"
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
