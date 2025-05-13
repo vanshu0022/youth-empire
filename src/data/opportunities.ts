@@ -182,7 +182,7 @@ export const opportunitiesData: Opportunity[] = [
   {
     id: '8',
     title: 'UNICEF Innovation Internship',
-    description: 'Work with UNICEF to create innovative solutions for children's challenges around the world.',
+    description: "Work with UNICEF to create innovative solutions for children's challenges around the world.",
     location: 'Multiple Locations',
     isRemote: true,
     deadline: '2025-01-20',
