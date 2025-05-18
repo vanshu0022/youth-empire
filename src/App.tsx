@@ -19,6 +19,8 @@ import LifeLab from "./pages/LifeLab";
 import Podcast from "./pages/Podcast";
 import Messaging from "./pages/Messaging";
 import Opportunities from "./pages/Opportunities";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,8 @@ const App = () => (
           <Route path="/podcasts" element={<Podcast />} />
           <Route path="/messages" element={<Messaging />} />
           <Route path="/opportunities" element={<Opportunities />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
