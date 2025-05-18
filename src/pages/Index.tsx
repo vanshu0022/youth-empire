@@ -1,16 +1,29 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import Feed from '@/components/Feed';
 import RightPanel from '@/components/RightPanel';
 import MobileNav from '@/components/MobileNav';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Index = () => {
   // For demo purposes - in a real app, this would come from auth state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Check if coming from successful sign in or sign up
+    const lastPath = sessionStorage.getItem('lastPath');
+    if (lastPath === '/signin' || lastPath === '/signup') {
+      setIsLoggedIn(true);
+      navigate('/dashboard');
+    }
+    
+    // Store current path
+    sessionStorage.setItem('lastPath', window.location.pathname);
+  }, [navigate]);
 
   // Guest landing page
   if (!isLoggedIn) {

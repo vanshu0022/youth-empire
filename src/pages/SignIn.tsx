@@ -26,8 +26,8 @@ const SignIn = () => {
         title: "Sign in successful",
         description: "You have been signed in successfully.",
       });
-      // Navigate to dashboard
-      navigate("/");
+      // Navigate to dashboard instead of home page
+      navigate("/dashboard");
     }, 1000);
   };
 

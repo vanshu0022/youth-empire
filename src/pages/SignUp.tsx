@@ -40,8 +40,8 @@ const SignUp = () => {
         title: "Account created successfully",
         description: "You have been registered successfully.",
       });
-      // Navigate to dashboard
-      navigate("/");
+      // Navigate to dashboard instead of home page
+      navigate("/dashboard");
     }, 1000);
   };
 
