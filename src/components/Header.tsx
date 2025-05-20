@@ -1,10 +1,11 @@
+
 import React, { useState } from 'react';
 import { Bell, Search, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NotificationsDropdown } from './NotificationsDropdown';
 import { ProfileDropdown } from './ProfileDropdown';
 import { MessagesSidebar } from './MessagesSidebar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   DropdownMenu,
   DropdownMenuTrigger,
@@ -23,9 +24,17 @@ const Header = () => {
   const [messagesOpen, setMessagesOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const navigate = useNavigate();
   
   // For demo purposes - in a real app, this would come from auth state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleOpenMessages = () => {
+    // Close the messages dropdown/drawer
+    setMessagesOpen(false);
+    // Navigate to the messages page
+    navigate('/messages');
+  };
 
   return (
     <header className="bg-white border-b border-gray-200 py-3 px-6 sticky top-0 z-10">
