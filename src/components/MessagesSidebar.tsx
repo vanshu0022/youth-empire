@@ -6,7 +6,7 @@ import { Search, X, Edit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // Sample messages data
 const messages = [
@@ -66,6 +66,14 @@ interface MessagesSidebarProps {
 }
 
 export const MessagesSidebar = ({ onClose }: MessagesSidebarProps) => {
+  const navigate = useNavigate();
+  
+  // This function will navigate to the messages page with the selected user ID
+  const handleOpenChat = (userId: number) => {
+    navigate(`/messages?userId=user-${userId}`);
+    onClose();
+  };
+  
   return (
     <div className="bg-white rounded-md overflow-hidden">
       <div className="flex items-center justify-between p-4 border-b border-gray-100">
@@ -92,11 +100,10 @@ export const MessagesSidebar = ({ onClose }: MessagesSidebarProps) => {
       
       <ScrollArea className="h-[350px] md:h-[450px]">
         {messages.map((message) => (
-          <Link
+          <button
             key={message.id}
-            to="/messages"
-            onClick={onClose}
-            className="flex items-center p-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0"
+            onClick={() => handleOpenChat(message.id)}
+            className="w-full text-left flex items-center p-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0"
           >
             <div className="relative">
               <Avatar className="h-12 w-12 mr-3">
@@ -126,18 +133,20 @@ export const MessagesSidebar = ({ onClose }: MessagesSidebarProps) => {
                 )}
               </div>
             </div>
-          </Link>
+          </button>
         ))}
       </ScrollArea>
       
       <div className="p-3 border-t border-gray-100 text-center">
-        <Link 
-          to="/messages"
-          onClick={onClose}
+        <button 
+          onClick={() => {
+            navigate('/messages');
+            onClose();
+          }}
           className="text-student-purple text-sm font-medium hover:underline"
         >
           See all messages
-        </Link>
+        </button>
       </div>
     </div>
   );

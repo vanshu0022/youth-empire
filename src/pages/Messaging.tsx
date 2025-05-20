@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import RightPanel from '@/components/RightPanel';
@@ -7,6 +8,13 @@ import MobileNav from '@/components/MobileNav';
 import MessagingInterface from '@/components/messaging/MessagingInterface';
 
 const Messaging = () => {
+  const location = useLocation();
+  
+  // Scroll to top when the messaging page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="min-h-screen bg-gray-50 flex">
       <Sidebar />
